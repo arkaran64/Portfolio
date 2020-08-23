@@ -1,0 +1,385 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+/*----- Accueil & Nav -----*/
+
+.navbar {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0;
+    top: 0;
+    z-index: 999;
+    transition: .3s linear;
+}
+
+.content {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 40px;
+}
+
+.navbar .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+}
+
+.menu-toggler {
+    background: none;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    z-index: 99;
+    display: none;
+}
+
+.menu-toggler span {
+    display: block;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    position: relative;
+    transition: .3s linear;
+}
+
+.navbar-menu a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .2s linear;
+}
+
+.navbar-menu a:hover {
+    color: #48dbfb;
+}
+
+.sticky {
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.sticky .navbar-menu a {
+    color: #111;
+}
+
+.sticky .menu-toggler span {
+    background-color: #111;
+}
+
+#home {
+    height: 100vh;
+    min-height: 500px;
+    background: url(../img/pexels-marta-branco-1194713.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#home .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+#home .anim-content {
+    width: 100%;
+    color: #fff;
+}
+
+#home .anim-content h1 {
+    font-size: 100px;
+    margin-bottom: 60px;
+}
+
+#home .anim-content h1::after {
+    content: "Emmanuel SICARD";
+    animation: textanim 10s linear infinite;
+}
+
+@keyframes textanim {
+    50% {
+        content: "Developpeur Web";
+    }
+}
+
+/*----- Qui suis-je -----*/
+
+section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    font-size: 30px;
+    padding-bottom: 20px;
+    color: #111;
+    text-decoration: underline #48dbfb;
+    bottom: -8px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-pic {
+    width: 200px;
+    border-radius: 50%;
+    margin-right: 100px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 span {
+    color: #48dbfb;
+}
+
+.about-text p {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 26px;
+    margin-top: 20px;
+}
+
+.about-skills h3 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 60px;
+    text-decoration: underline #48dbfb;
+} 
+
+
+.skills {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: center;
+    background-color: #48dbfb;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    padding: 5px;
+}
+
+/*----- Realisations -----*/
+
+section.dark {
+    background-color: #353b48;
+}
+
+section.dark .section-title {
+    color: #fff;
+}
+
+.works {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.work {
+    position: relative;
+    width: 32%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.work img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+.work .info {
+    position: absolute;
+    z-index: 2;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    background-color: #48dbfb;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    transition: .4s linear;
+    opacity: 0;
+}
+
+.work:hover .info {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox {
+	/** Default lightbox to hidden */
+	display: none;
+
+	/** Position and style */
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+}
+
+.lightbox img {
+	/** Pad the lightbox image */
+	max-width: 90%;
+	max-height: 80%;
+	margin-top: 2%;
+}
+
+.lightbox:target {
+	/** Remove default browser outline */
+	outline: none;
+
+	/** Unhide lightbox **/
+	display: block;
+}
+
+/*----- Contact -----*/
+
+.contact-form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    background-color: #353b48;
+    border: none;
+    outline: none;
+    padding: 20px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.name,
+.email {
+    max-width: 49.5%;
+}
+
+.message {
+    min-height: 200px;
+}
+
+.contact-form .btn {
+    width: 180px;
+    background-color: #48dbfb;
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #48dbfb;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.contact-form .btn:hover {
+    background-color: transparent;
+    color: #48dbfb;
+}
+
+/*----- Footer -----*/
+
+footer {
+    background: #353B48;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+#goTop {
+    display: flex;
+    justify-content: center;
+    background-color: #353B48;
+}
+
+.goTop {
+    width: 40px;
+    height: 40px;
+    background-color: #48dbfb;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    justify-content: center;
+    position: relative;
+    bottom: 70px
+}
+
+.goTop:hover {
+    background-color: #fff;
+    border: 2px solid #48dbfb;
+    color: #48dbfb;
+}
+.copyright {
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.sm a {
+    color: #fff;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: .2s linear;
+}
+
+.sm a:hover {
+    color: #48dbfb;
+}
